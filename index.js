@@ -10,6 +10,16 @@ const fileName = `GENREADME.md`;
 const questions = [
     {
         type: 'input',
+        message: 'Please enter your Github Username',
+        name: 'gitHub'
+    },
+    {
+        type: 'input',
+        message: 'Please enter your email address',
+        name: 'email'
+    },
+    {
+        type: 'input',
         message: 'Please enter project title',
         name: 'projectTitle'
     },
@@ -20,7 +30,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please add the table of contents',
+        message: 'Please add details about your table of contents.',
         name: 'contents'
     },
     {
@@ -68,12 +78,11 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer
         .prompt(questions)
-        .then((data) => {
+        .then((data) => 
             writeToFile(fileName, generateMarkdown(data))
-        
             // const newFile = `# Project Title: ${response.projectTitle}`;
             // console.log(`${response.projectTitle}`);
-        });
+        );
         // .catch((err) => console.error(err));
 }
 
